@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login- Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    
+        <video autoplay muted loop id="myVideo">
+            <source src="https://epecvitpune.com/wp-content/uploads/2020/10/Pexels-Videos-4513.mp4" type="video/mp4">
+          </video>
+      
+    <div class="form-div">
+    <h1>Login Form</h1>
+    <form name="loginform" onsubmit="return validateForm()" action="./portfolio/portfolio.html" method="post">
+        <label for="uname">Email/Phone</label><br>
+        <input type="text" id="uname" name="uname"><br><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" id="pwd" name="pwd"><br><br>
+        <input type="submit" id="btn" value="Login">
+      </form>
+    </div>
+
+   
+<script>
+function validateForm()
+{
+  var un = document.forms["loginform"]["uname"].value;
+  var pw = document.forms["loginform"]["pwd"].value;
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  var phoneno = /^\d{10}$/;
+  var password=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{11,}$/;
+  if(un.match(mailformat) || un.match(phoneno)){
+    if(pw.match(password)){
+     return true;
+
+ }
+ else{
+     alert("Password should contain  at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.\n Try using your date of birth ending with a '.'. Eg 10October1999.");
+     return false;
+ }
+  }
+  else {
+      alert("Invalid email/number");
+      return false;
+  }
+ 
+}
+</script>
+</body>
+</html>
